@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){	
-	float loan,interestperY,pay;
+	double loan,interestperY,pay;
 	cout << "Enter initial loan: ";
 	cin >> loan;
 	
@@ -29,16 +29,17 @@ int main(){
 	//you can change input argument of 'setprecision()' to see the effect
 
 	cout << fixed << setprecision(2);
-	float  prevB=loan;
+	double prevB=loan;
 	int year = 1;
+	double inter,total;
 	do
 	{
 		
 		cout << setw(13) << left << year;
 		cout << setw(13) << left << prevB;
-		float inter = prevB*interestperY/100;
+		inter = prevB*interestperY/100.00;
 		cout << setw(13) << left << inter;
-		float total = prevB+inter;
+		total = prevB+inter;
 		cout << setw(13) << left << total;
 		if(total < pay)
 		{
@@ -46,7 +47,7 @@ int main(){
 		}
 		cout << setw(13) << left << pay;
 		prevB = total - pay;
-		cout << setw(13) << left <<  prevB ;
+		cout << setw(13) << left <<  prevB;
 		cout << "\n";	
 		year++;
 	}while(prevB !=0);
